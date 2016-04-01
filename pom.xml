@@ -8,4 +8,5 @@
   <artifactId>discoursedb-demo</artifactId>
   <name>DiscourseDB demo parent</name>
   <description>Parent project for DiscourseDB demos</description>
+  <packaging>pom</packaging>
 </project>
