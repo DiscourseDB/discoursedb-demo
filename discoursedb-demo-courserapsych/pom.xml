@@ -6,4 +6,18 @@
     <version>0.6-SNAPSHOT</version>
   </parent>
   <artifactId>discoursedb-demo-courserapsych</artifactId>
+  <dependencies>
+  	<dependency>
+  		<groupId>edu.cmu.cs.lti</groupId>
+  		<artifactId>discoursedb-model</artifactId>
+  	</dependency>
+  	<dependency>
+  		<groupId>commons-io</groupId>
+  		<artifactId>commons-io</artifactId>
+  	</dependency>
+  	<dependency>
+  		<groupId>edu.cmu.cs.lti</groupId>
+  		<artifactId>discoursedb-io-coursera</artifactId>
+  	</dependency>
+  </dependencies>
 </project>
