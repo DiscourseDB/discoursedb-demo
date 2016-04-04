@@ -30,7 +30,14 @@ import edu.cmu.cs.lti.discoursedb.core.service.macro.DiscourseService;
 import edu.cmu.cs.lti.discoursedb.core.service.user.UserService;
 
 /**
- * Adds annotations to contributions based on two provided mapping files that map from post/comment ids to a label.
+ * Calculates contribution count statistics based on contribution annotations.
+ * Every contributions annotated with a C1, C2 or I label is considered to be a constructive contribution.
+ * All others are not.
+ * 
+ * The custom.properties file needs to point to a DiscourseDB instance that contains the desired dataset.
+ * The name of the discourse that represents the coursea data in that database has to be provided as the first command line parameter.  
+ * Output is written to a csv file. The location of that file has to be provided as a second command line parameter.
+ * 
  * 
  * @author Oliver Ferschke
  */
@@ -54,7 +61,7 @@ public class ConstructivePostStats implements CommandLineRunner {
 	/**
 	 * Launches the SpringBoot application 
 	 * 
-	 * @param args 
+	 * @param args Command line parans: <DiscourseName> <PathOfOutputFile>"
 	 */
 	public static void main(String[] args) throws IOException{
 		Assert.isTrue(args.length==2,"USAGE: SimpleContributionAnnotator <DiscourseName> <Output>");
