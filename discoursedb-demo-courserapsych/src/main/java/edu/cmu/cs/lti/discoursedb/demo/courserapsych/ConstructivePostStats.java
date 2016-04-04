@@ -44,7 +44,6 @@ import edu.cmu.cs.lti.discoursedb.core.service.user.UserService;
 public class ConstructivePostStats implements CommandLineRunner {
 	
 	@Autowired private ContributionService contribService;
-	@Autowired private AnnotationService annoService;
 	@Autowired private UserService userService;
 	@Autowired private DiscourseService discourseService;
 
@@ -76,6 +75,7 @@ public class ConstructivePostStats implements CommandLineRunner {
 		for(User curUser:userService.findUsersByDiscourse(discourse)){
 			int allContributions = 0;
 			int constructiveContributions = 0;
+			
 			for(Contribution contrib: contribService.findAllByFirstRevisionUser(curUser)){
 				allContributions++;
 				if(contrib.getAnnotations()!=null){
@@ -85,9 +85,7 @@ public class ConstructivePostStats implements CommandLineRunner {
 							constructive=true;
 						}
 					}
-					if(constructive){
-						constructiveContributions++;
-					}
+					if(constructive){constructiveContributions++;}
 				}
 			}
 			outputLines.add(curUser.getId()+","+curUser.getUsername()+","+constructiveContributions+","+allContributions);			
